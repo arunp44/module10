@@ -11,7 +11,7 @@ function promptUser() {
       {
         type: "input",
         message:
-          "What text would you like you logo to display? (Enter up to three characters)",
+          "What text would you to display? (Enter up to three characters)",
         name: "text", // name of text being entered
       },
       // Text color prompt
@@ -24,8 +24,8 @@ function promptUser() {
       // Shape choice prompt
       {
         type: "list",
-        message: "What shape would you like the logo to render?",
-        choices: ["Triangle", "Square", "Circle"],
+        message: "What shape would you like the logo to be?",
+        choices: ["Triangle", "Square", "Circle"], // multiple choice
         name: "shape", // name of shape being chosen
       },
       // Shape color prompt
@@ -43,7 +43,7 @@ function promptUser() {
         promptUser();
       } else {
         // Calling write file function to generate SVG file
-        writeToFile("logo.svg", ans);
+        writeToFile("shape.svg", ans);
       }
     });
 }
@@ -84,6 +84,6 @@ function writeToFile(fileName, ans) {
 
   // Using system module to generate svg, takes in file name given in the promptUser function, the svg string, and a ternary operator which handles logging any errors, or a "Generated logo.svg" message to the console  
   fs.writeFile(fileName, svgFile, (err) => {
-    err ? console.log(err) : console.log("Generated logo.svg");
+    err ? console.log(err) : console.log("Generated shape.svg");
   });
 }
